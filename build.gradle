@@ -1,0 +1,53 @@
+buildscript {
+	ext {
+		springBootVersion = '1.4.1.RELEASE'
+        springDataCommonsVersion='1.12.2.RELEASE'
+        hsqldbVersion='2.3.4'
+        springCloudStarterVersion='1.1.2.RELEASE'
+        springCloudStarterEurekaServerVersion='1.1.6.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+apply plugin: 'maven'
+apply plugin: 'spring-boot'
+
+jar {
+	baseName = 'cards'
+	version = '0.0.1-SNAPSHOT'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+
+    compile 'org.springframework.boot:spring-boot-starter:' + springBootVersion,
+            'org.springframework.boot:spring-boot-starter-web:' + springBootVersion,
+            'org.springframework.boot:spring-boot-starter-thymeleaf:' + springBootVersion,
+            'org.springframework.data:spring-data-commons:' + springDataCommonsVersion,
+            'org.springframework.boot:spring-boot-starter-test:' + springBootVersion,
+            'org.springframework.boot:spring-boot-starter-data-jpa:' + springBootVersion,
+            'org.hsqldb:hsqldb:' + hsqldbVersion,
+            'org.springframework.cloud:spring-cloud-starter:' + springCloudStarterVersion,
+            'org.springframework.cloud:spring-cloud-starter-eureka-server:' + springCloudStarterEurekaServerVersion
+
+    testCompile 'junit:junit:4.+',
+                'org.springframework.boot:spring-boot-starter-test'
+}
+
+springBoot {
+    mainClass = "com.nike.microservices.exercise.Main"
+}

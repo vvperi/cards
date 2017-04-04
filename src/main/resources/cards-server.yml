@@ -1,0 +1,21 @@
+spring:
+  application:
+     name: cards-service
+  freemarker:
+    enabled: false
+  thymeleaf:
+    cache: false
+    prefix: classpath:/cards-server/templates/
+
+error:
+  path: /error
+
+server:
+  port: 2222
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+  instance:
+    leaseRenewalIntervalInSeconds: 5
