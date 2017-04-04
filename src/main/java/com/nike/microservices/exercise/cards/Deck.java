@@ -66,7 +66,7 @@ public class Deck {
     }
 
     private List<Card> simpleShuffle(List<Card> deck) {
-        Card[] cardsArray = (Card[]) deck.toArray();
+        Card[] cardsArray = deck.toArray(new Card[deck.size()]);
         int numberOfCards = cardsArray.length;
         for (int i = 0; i < numberOfCards; i++) {
             int r = i + (int) (Math.random() * (numberOfCards - i));
